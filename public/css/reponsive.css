@@ -1,0 +1,5 @@
+@media (max-width: 1535px) {
+  .container-quiz {
+    max-width: 1200px !important; /* Đặt max-width cụ thể */
+  }
+} 

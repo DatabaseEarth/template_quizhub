@@ -1,0 +1,179 @@
+:root{
+    --background-color: #ffffff; /* Màu nền sáng */
+    --shadow-color: rgba(0, 0, 0, 0.2); /* Màu bóng mờ */
+    --text-color: #000000; /* Màu chữ sáng */
+    --text-secondary-color: #808080; /* Màu chữ sáng */
+    --primary-color: #139487; /* Màu chính */
+    --background-secondary-color: #EEEEEE; /* Màu phụ */
+    --hover-color: #139487; /* Màu khi hover */
+    --active-color: #139487; /* Màu khi active */
+    --linear-blue: #0079FF; /* Màu linear xanh nước */
+    --linear-green: #42B983; /* Màu linear xanh lá */
+    --linear-orange: #FF5722; /* Màu linear cam */
+    --linear-pink: #FF4191; /* Màu linear hồng */
+}
+[data-theme="dark"] {
+    --background-color: #212121; /* Màu nền đen */
+    --text-color: #ffffff; /* Màu chữ đen */
+    --background-secondary-color: #303030; /* Màu nền phụ */
+    --shadow-color: rgba(255, 255, 255, 0.5); /* Màu bóng mờ */
+
+}
+/* ============================================================================== */
+/* các selector sử dụng chung trong layout */
+main{
+    height: calc(100vh - 70px);
+    background-color: var(--background-color);
+}
+/* ============================================================================== */
+#header{
+    height: 70px;
+    background-color: var(--background-color);
+}
+#header .logo{
+    height: 37px;
+}
+#header .header--nav ul li a{
+    color: var(--text-color);
+    font-size: 16px;
+}
+#header .header--nav ul li a:hover{
+    color: var(--primary-color);
+}
+#header .header--nav ul li a .header--nav--line_hover{
+    top: 120%;
+    right: 50%;
+    transform: translateX(0%);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 1s ease;
+    width: 35px;
+    border: 2px solid var(--hover-color);
+}
+#header .header--nav ul li a:hover .header--nav--line_hover{
+    transform: translateX(50%);
+    opacity: 1;
+}
+#header .header--btn--dark__mode{
+    width: 49px;
+    height: 20px;
+    border-radius: 40px;
+    border: 2px solid var(--text-color);
+}
+#header .header--btn--dark__mode .fa-solid{
+    top:1px;
+    right: 6px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+#header .header--btn--sign__in{
+    background-image: linear-gradient(90deg,var(--linear-green),var(--linear-blue));
+    color: #fff;
+    font-size: 14px;
+    border-radius: 40px;
+    height: 35px;
+    width: 120px;
+}
+#header .header--btn--bars{
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: var(--text-color);
+}
+#header .header--btn--bars .fs-bars{
+    cursor: pointer;
+    font-size: 24px;
+}
+#header .header--btn--bars:hover{
+    color: var(--hover-color);
+    background-color: var(--background-secondary-color);
+}
+#header .header--overlay{
+    background-color: rgba(0, 0, 0, .5);
+    visibility: hidden; /* Ẩn phần tử */
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+#header .header--overlay.active{
+    visibility: visible; /* Hiện phần tử khi có class active */
+    opacity: 1;
+}
+#header .header--nav--tablet--mobile{
+    width: 300px;
+    background-color: var(--background-color);
+    box-shadow: -5px 0px 5px var(--shadow-color);
+    transform: translateX(100%);
+    transition: transform 2s ease;
+}
+#header .header--nav--tablet--mobile.active{
+    transform: translateX(0%);
+}
+#header .header--nav--tablet--mobile .fa-xmark{
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+#header .header--nav--tablet--mobile ul li a{
+    color: var(--text-color);
+}
+#header .header--nav--tablet--mobile ul li a:hover{
+    background-color: var(--background-secondary-color);
+}
+/* ============================================================================== */
+/* #home{}*/
+#home .home--search{
+    max-width: 780px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: var(--background-color);
+    background-image: linear-gradient(90deg, var(--linear-blue), var(--linear-orange), var(--linear-pink), var(--linear-green));
+} 
+#home .home--search .home--search--layout {
+    border-radius: 5px;
+    background-color: var(--background-color);
+    background-image: url(../images/62017743-hoạt-hình-dễ-thương-vẽ-tay-du-lịch-kiểu-liền-mạch.-dòng-nghệ-thuật-chi-tiết\,-với-nhiều-nền-đối-tượng.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#home .home--search .home--search--layout .home--search--overlay__background{
+    background-color:  #42B98380;
+    border-radius: 10px;
+}
+#home .home--search .home--search--layout .home--search--code{
+    width: 100%;
+}
+#home .home--search .home--search--layout .home--search--code input,
+#home .home--search .home--search--layout .home--search--code button{
+    height: 35px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#home .home--search .home--search--layout .home--search--code input{
+    color: #000000;
+    text-align: center;
+    width: 100%;
+}
+#home .home--search .home--search--layout .home--search--code button{
+    color: #fff;
+    width: 100%;
+    background-image: linear-gradient(90deg,var(--linear-green),var(--linear-blue));
+}
+#home .home--search .home--search--layout .home--search--random{
+    width: 100%;
+}
+#home .home--search .home--search--layout .home--search--random button{
+    color: #fff;
+    width: 100%;
+    height: 35px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-image: linear-gradient(90deg,var(--linear-orange),var(--linear-pink));
+}
