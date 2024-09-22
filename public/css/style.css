@@ -455,16 +455,15 @@ main{
     width: 30px;
 }
 #home .home--exam .home--exam--product .home--exam--product--info .home--exam--product--user--name{
-    font-size: 12px;
+    font-size: 14px;
     color: var(--text-color);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font: 16px;
     width: 100%;
 }
 #home .home--exam .home--exam--product .home--exam--product--info .home--exam--product--user--position{
-    font-size: 10px;
+    font-size: 12px;
     background-image: linear-gradient(90deg, var(--linear-green), var(--linear-blue)) !important;
     background-position: center;
     background-size: cover;
@@ -559,7 +558,7 @@ main{
     color: var(--hover-color);
 }
 #footer .footer--socal .footer--socal--subscribe{
-    max-width: 260px;
+    max-width: 300px;
 }
 #footer .footer--socal .footer--socal--subscribe input{
     height: 30px;
@@ -595,9 +594,16 @@ main{
     height: 50px;
 }
 
+#footer .footer--media{
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease;
+}
 #footer .footer--media--item{
     height: 30px;
     width: 30px;
     background-color: var(--background-secondary-color);
     color: var(--text-color);
+}
+#footer .footer--media--copyright{
+    color: var(--text-secondary-color);
 }
