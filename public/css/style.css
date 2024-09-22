@@ -21,7 +21,8 @@
 /* ============================================================================== */
 /* các selector sử dụng chung trong layout */
 body{
-    min-width: 450px;
+    overflow-x: hidden; /* Ngăn cuộn ngang */
+    min-width: 400px;
     height: 100%;
 }
 main{
@@ -44,7 +45,7 @@ main{
 ::-webkit-scrollbar-thumb {
     background-image: linear-gradient(180deg,var(--linear-green),var(--linear-blue)); /* Màu của thanh kéo */
     border-radius: 10px; /* Bo tròn thanh kéo */
-    border: 0.5px solid var(--text-secondary-color); /* Viền để tạo khoảng cách */
+    /* border: 0.5px solid var(--text-secondary-color); Viền để tạo khoảng cách */
 }
 /* Khi hover vào thanh cuộn */
 ::-webkit-scrollbar-thumb:hover {
@@ -202,6 +203,7 @@ main{
     border-radius: 5px;
     background-color: var(--background-color);
     background-image: url(../images/62017743-hoạt-hình-dễ-thương-vẽ-tay-du-lịch-kiểu-liền-mạch.-dòng-nghệ-thuật-chi-tiết\,-với-nhiều-nền-đối-tượng.jpg);
+    /* filter: grayscale(100%); */
     background-size: cover;
     background-position: center;
 }
@@ -406,4 +408,196 @@ main{
     color: transparent; 
     -webkit-background-clip: text; /* Hỗ trợ cho các trình duyệt WebKit như Chrome, Safari */
     background-clip: text !important; 
+}
+#home .home--exam .home--exam--product{
+    box-shadow: 1px 3px 5px var(--shadow-color);
+}
+/* #home .home--exam .home--exam--product .home--exam--product--image{
+    
+} */
+#home .home--exam .home--exam--product .home--exam--product--image img{
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+    object-fit: cover;
+}
+#home .home--exam .home--exam--product:hover .home--exam--product--image img{
+    transform: scale(1.1);
+}
+/* #home .home--exam .home--exam--product .home--exam--product--info{
+    
+} */
+#home .home--exam .home--exam--product .home--exam--product--info .home--exam--product-info--name{
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font: 16px;
+    width: 90%;
+}
+#home .home--exam .home--exam--product .home--exam--product--info .home--exam--product-info--detail{
+    color: var(--text-secondary-color);
+    font-size: 14px;
+}
+#home .home--exam .home--exam--product .home--exam--product--info meter{
+    width: 100%; 
+}
+#home .home--exam .home--exam--product .home--exam--product--info meter::-webkit-meter-bar {
+    background: var(--shadow-color); 
+    border-radius: 5px; 
+}
+#home .home--exam .home--exam--product .home--exam--product--info meter::-webkit-meter-optimum-value {
+    background: linear-gradient(90deg, var(--linear-green), var(--linear-blue));
+    border-radius: 5px;
+}
+#home .home--exam .home--exam--product .home--exam--product--info .home--exam--product--user--avatar{
+    width: 30px;
+}
+#home .home--exam .home--exam--product .home--exam--product--info .home--exam--product--user--name{
+    font-size: 12px;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font: 16px;
+    width: 100%;
+}
+#home .home--exam .home--exam--product .home--exam--product--info .home--exam--product--user--position{
+    font-size: 10px;
+    background-image: linear-gradient(90deg, var(--linear-green), var(--linear-blue)) !important;
+    background-position: center;
+    background-size: cover;
+    color: transparent; 
+    -webkit-background-clip: text; /* Hỗ trợ cho các trình duyệt WebKit như Chrome, Safari */
+    background-clip: text !important;
+}
+#home .home--exam .home--exam--product .home--exam--product--info .home--exam--product--btn{
+    background-image: linear-gradient(90deg,var(--linear-green),var(--linear-blue));
+    color: #fff;
+    font-size: 14px;
+    border-radius: 40px;
+    height: 30px;
+    width: 30px;
+}
+
+/* #home .home--new{} */
+#home .home--new .home--new--title{
+    background-image: linear-gradient(90deg, var(--linear-orange), var(--linear-pink)) !important;
+    background-position: center;
+    background-size: cover;
+    color: transparent; 
+    -webkit-background-clip: text; /* Hỗ trợ cho các trình duyệt WebKit như Chrome, Safari */
+    background-clip: text !important; 
+}
+#home .home--new .home--new--product{
+    /* box-shadow: 1px 3px 5px var(--shadow-color); */
+}
+#home .home--new .home--new--product .home--new--product--image img{
+    background-color: #fff;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+    object-fit: cover;
+}
+#home .home--new .home--new--product:hover .home--new--product--image img{
+    transform: scale(1.1);
+}
+#home .home--new .home--new--product .home--new--product--info .home--new--product--info--title{
+    font-size: 16px;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+#home .home--new .home--new--product .home--new--product--info .home--new--product--info--description{
+    color: var(--text-secondary-color);
+    font-size: 14px;
+    line-height: 18px;
+    display: -webkit-box;
+    text-align: justify;
+    -webkit-line-clamp: 3; /* Giới hạn còn 3 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    width: 100%;
+}
+#home .home--new .home--new--product .home--new--product--info .home--new--product--info--view{
+    color: var(--linear-blue);
+    font-size: 14px;
+}
+#home .home--new .home--new--btn{
+    background-image: linear-gradient(90deg,var(--linear-green),var(--linear-blue));
+    color: #fff;
+    font-size: 14px;
+    border-radius: 40px;
+    height: 35px;
+    width: 120px;
+}
+
+/* ============================================================================== */
+
+/* #footer{} */
+#footer .footer--socal{
+    background-color: var(--background-secondary-color);
+    transition: background-color 0.3 ease;
+}
+#footer .footer--socal .logo{
+    height: 37px;
+}
+#footer .footer--socal .footer--socal--title{
+    color: var(--text-color);
+}
+#footer .footer--socal .footer--socal--item{
+    color: var(--text-secondary-color);
+    font-size: 14px;
+    line-height: 25px;
+}
+#footer .footer--socal .footer--socal--item:hover{
+    color: var(--hover-color);
+}
+#footer .footer--socal .footer--socal--subscribe{
+    max-width: 260px;
+}
+#footer .footer--socal .footer--socal--subscribe input{
+    height: 30px;
+    width: 100%;
+    outline: 0px;
+    border: 0px;
+    padding: 5px 15px;
+    font-size: 14px;
+    color: var(--text-secondary-color);
+}
+#footer .footer--socal .footer--socal--subscribe button{
+    outline: 0px;
+    border: 0px;
+    padding: 0px;
+    right: 10px;
+    top: 0px;
+    background-image: linear-gradient(90deg, var(--linear-orange), var(--linear-pink)) !important;
+    background-position: center;
+    background-size: cover;
+    color: transparent; 
+    -webkit-background-clip: text; /* Hỗ trợ cho các trình duyệt WebKit như Chrome, Safari */
+    background-clip: text !important;
+}
+#footer .footer--socal .footer--socal--subscribe--description{
+    color: var(--text-secondary-color);
+    font-size: 12px;
+    line-height: 16px !important;
+}
+#footer .footer--socal .footer--socal--alert{
+    height: 40px;
+}
+#footer .footer--socal .footer--socal--certification{
+    height: 50px;
+}
+
+#footer .footer--media--item{
+    height: 30px;
+    width: 30px;
+    background-color: var(--background-secondary-color);
+    color: var(--text-color);
 }
