@@ -16,19 +16,65 @@
     --background-color: #212121; /* Màu nền đen */
     --text-color: #ffffff; /* Màu chữ đen */
     --background-secondary-color: #303030; /* Màu nền phụ */
-    --shadow-color: rgba(255, 255, 255, 0.5); /* Màu bóng mờ */
-
+    --shadow-color: rgba(128, 128, 128, 0.5); /* Màu bóng mờ */
 }
 /* ============================================================================== */
 /* các selector sử dụng chung trong layout */
+body{
+    min-width: 450px;
+    height: 100%;
+}
 main{
-    height: calc(100vh - 70px);
-    background-color: var(--background-color);
+    /* height: calc(100% - 70px); */
+    color: var(--text-color) !important;
+    background-color: var(--background-color) !important;
+    transition: background-color 0.3s ease;
+}
+/* Thanh cuộn toàn trang */
+::-webkit-scrollbar {
+    width: 8px; /* Độ rộng của thanh cuộn */
+    height: 12px; /* Độ cao của thanh cuộn ngang */
+}
+/* Đường cuộn (track) */
+::-webkit-scrollbar-track {
+    background-color: var(--background-secondary-color); /* Màu nền của đường cuộn */
+    border-radius: 10px; /* Bo tròn các góc */
+}
+/* Thanh cuộn (thumb) */
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(180deg,var(--linear-green),var(--linear-blue)); /* Màu của thanh kéo */
+    border-radius: 10px; /* Bo tròn thanh kéo */
+    border: 0.5px solid var(--text-secondary-color); /* Viền để tạo khoảng cách */
+}
+/* Khi hover vào thanh cuộn */
+::-webkit-scrollbar-thumb:hover {
+    background-image: linear-gradient(180deg,var(--linear-orange),var(--linear-pink)); /* Thay đổi màu khi hover */
+    cursor: pointer;
+}
+/* Khi click vào thanh cuộn */
+::-webkit-scrollbar-thumb:active {
+    background-image: linear-gradient(180deg,var(--linear-green),var(--linear-orange),var(--linear-pink),var(--linear-blue)) /* Màu khi nhấn giữ */
+}
+/* Thanh cuộn ngang (nếu có) */
+::-webkit-scrollbar-horizontal {
+    height: 12px; /* Chiều cao của thanh cuộn ngang */
+}
+/* Đường cuộn ngang */
+::-webkit-scrollbar-track-horizontal {
+    background-color: #e0e0e0; /* Nền cho thanh cuộn ngang */
+}
+/* Thanh cuộn ngang */
+::-webkit-scrollbar-thumb-horizontal {
+    background-color: #76b900; /* Màu của thanh kéo ngang */
+    border-radius: 10px; /* Bo tròn góc cho thanh kéo ngang */
 }
 /* ============================================================================== */
 #header{
     height: 70px;
     background-color: var(--background-color);
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 5px 5px var(--shadow-color);
+    border-bottom: 0.5px solid var(--shadow-color);
 }
 #header .logo{
     height: 37px;
@@ -55,15 +101,21 @@ main{
 }
 #header .header--btn--dark__mode{
     width: 49px;
-    height: 20px;
+    height: 24px;
     border-radius: 40px;
     border: 2px solid var(--text-color);
+    cursor: pointer;
 }
-#header .header--btn--dark__mode .fa-solid{
-    top:1px;
+#header .header--btn--dark__mode i{
+    top:3px;
     right: 6px;
     font-size: 16px;
     color: var(--text-color);
+    transition: right 1s ease;
+    cursor: pointer;
+}
+#header .header--btn--dark__mode.active i{
+    right: 25px;
 }
 #header .header--btn--sign__in{
     background-image: linear-gradient(90deg,var(--linear-green),var(--linear-blue));
@@ -91,7 +143,7 @@ main{
     background-color: rgba(0, 0, 0, .5);
     visibility: hidden; /* Ẩn phần tử */
     opacity: 0;
-    transition: opacity 2s ease;
+    transition: opacity 0.3s ease,visibility 0.3s ease;
 }
 #header .header--overlay.active{
     visibility: visible; /* Hiện phần tử khi có class active */
@@ -102,7 +154,25 @@ main{
     background-color: var(--background-color);
     box-shadow: -5px 0px 5px var(--shadow-color);
     transform: translateX(100%);
-    transition: transform 2s ease;
+    transition: transform 1s ease;
+}
+#header .header--nav--tablet--mobile .header--nav--tablet--mobile--avatar{
+    border: 1px solid var(--text-secondary-color);
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+}
+#header .header--nav--tablet--mobile .header--nav--tablet--mobile--name{
+    color: var(--text-color);
+    font-size: 14px;
+}
+#header .header--nav--tablet--mobile .header--nav--tablet--mobile--email{
+    color: var(--text-secondary-color);
+    font-size: 12px;
+}
+#header .header--nav--tablet--mobile .header--nav--tablet--mobile--avatar img{
+    aspect-ratio: 1/1;
+    object-fit: cover;
 }
 #header .header--nav--tablet--mobile.active{
     transform: translateX(0%);
@@ -176,4 +246,164 @@ main{
     padding-left: 20px;
     padding-right: 20px;
     background-image: linear-gradient(90deg,var(--linear-orange),var(--linear-pink));
+}
+
+
+#home .home--topic__list .card-wrapper{
+    max-width: 1200px;
+    margin: 0 20px 10px;
+    padding: 20px 10px;
+    overflow: hidden;
+}
+#home .home--topic__list .card-wrapper .card-list .card-item{
+    list-style: none;
+}
+#home .home--topic__list .card-wrapper .card-list .card-item .card-link{
+    user-select: none;
+    /* display: block; */
+    background-color: var(--background-color);
+    border-radius: 50%;
+    padding: 10px;
+    background-image: linear-gradient(180deg,var(--linear-green),var(--linear-blue));
+    text-decoration: none;
+}
+#home .home--topic__list .card-wrapper .card-list .card-item .card-link .card-image{
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border: 10px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 5px var(--shadow-color);
+}
+#home .home--topic__list .card-wrapper .swiper-pagination-bullet{
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background-color: var(--active-color);
+}
+#home .home--topic__list .card-wrapper .swiper-pagination-bullet-active{
+    opacity: 1;
+}
+#home .home--topic__list .card-wrapper .swiper-button-prev,
+#home .home--topic__list .card-wrapper .swiper-button-next{
+    padding: 20px;
+    background-color: var(--background-secondary-color);
+    color: var(--text-color);
+    border-radius: 50%;
+}
+#home .home--topic__list .card-wrapper .swiper-button-prev::after,
+#home .home--topic__list .card-wrapper .swiper-button-next::after{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#home .home--quiz__new{
+    background-color: var(--background-secondary-color);
+    transition: background-color 0.3s ease;
+}
+#home .home--quiz__new .home--quiz__new--title{
+    color: var(--text-color);
+}
+#home .home--quiz__new .home--quiz__new--line__title {
+    border-width: 3px;
+    border-style: solid; 
+    border-image-source: linear-gradient(90deg, var(--linear-green), var(--linear-blue));
+    border-image-slice: 1; 
+    width: 200px;
+}
+#home .home--quiz__new .home--quiz__new--view__all {
+    color: var(--linear-blue);
+}
+#home .home--quiz__new .home--quiz__new--product img{
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+    object-fit: cover;
+}
+#home .home--quiz__new .home--quiz__new--product:hover img{
+    transform: scale(1.1);
+}
+#home .home--quiz__new .home--quiz__new--product--name{
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font: 16px;
+    width: 80%;
+}
+#home .home--quiz__new .home--quiz__new--product--heart{
+    color: var(--linear-pink);
+    text-align: end;
+    width: 20%;
+}
+#home .home--quiz__new .home--quiz__new--product--star{
+    color: #FFD700;
+    font-size: 14px;
+}
+#home .home--quiz__new .home--quiz__new--product--did{
+    color: var(--text-secondary-color);
+    font-size: 14px;
+}
+
+#home .home--outstanding .home--outstanding--title{
+    color: var(--text-color);
+}
+#home .home--outstanding .home--outstanding--line__title {
+    border-width: 3px;
+    border-style: solid; 
+    border-image-source: linear-gradient(90deg, var(--linear-green), var(--linear-blue));
+    border-image-slice: 1; 
+    width: 200px;
+}
+#home .home--outstanding .home--outstanding--view__all {
+    color: var(--linear-blue);
+}
+#home .home--outstanding .home--outstanding--product{
+    box-shadow: 2px 5px 5px var(--shadow-color);
+}
+#home .home--outstanding .home--outstanding--product img{
+    /* border-radius: 10px 10px 0px 0px; */
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.5s ease;
+    object-fit: cover;
+}
+#home .home--outstanding .home--outstanding--product:hover img{
+    transform: scale(1.1);
+}
+#home .home--outstanding .home--outstanding--product--name{
+    color: #000000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font: 16px;
+    width: 80%;
+}
+#home .home--outstanding .home--outstanding--product--heart{
+    color: var(--linear-pink);
+    text-align: end;
+    width: 20%;
+}
+#home .home--outstanding .home--outstanding--product--star{
+    color: #FFD700;
+    font-size: 14px;
+}
+#home .home--outstanding .home--outstanding--product--did{
+    color: var(--text-secondary-color);
+    font-size: 14px;
+}
+
+#home .home--exam{
+    background-color: var(--background-secondary-color);
+    transition: background-color 0.3 ease;
+}
+#home .home--exam .home--exam--title{
+    background-image: linear-gradient(90deg, var(--linear-green), var(--linear-blue)) !important;
+    background-position: center;
+    background-size: cover;
+    color: transparent; 
+    -webkit-background-clip: text; /* Hỗ trợ cho các trình duyệt WebKit như Chrome, Safari */
+    background-clip: text !important; 
 }
